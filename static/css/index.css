@@ -14,6 +14,11 @@ body {
     width: 100vw;
     height: 100vh;
     background: linear-gradient(to top left, #222525, #1d3234);
+    /* background-image: "static\\assets\\indexLogin.jpg"; */
+    background-image: url("/static/assets/indexLogin.jpg");
+    background-position: center;
+    background-origin: start;
+    background-size: cover;
 }
 
 .innerLoginPage {
@@ -24,7 +29,7 @@ body {
     transform: translateY(-50%);
     padding: 20px 60px;
     /* background-color: white; */
-    background: linear-gradient(to right top, rgb(85, 43, 43), #ffffffa3);
+    background: linear-gradient(to center top, #7e7d85, #4a494f);
     border-radius: 8px;
     /* box-shadow: 15px 15px 5px #555; */
     z-index: 5;
