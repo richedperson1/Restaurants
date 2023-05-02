@@ -1,0 +1,350 @@
+/* Font importing */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Playball&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Red Rose", cursive;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --color: #ff505f;
+    --text-color: #ffc233;
+    --white-color: #fefefe;
+    --section-second-color: rgb(103, 134, 128);
+    --background-second-color: #000000;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    width: 100%;
+
+}
+
+main {
+    background-color: #060303;
+    /* background-image: url("assets/background.png");{{url_for('static', filename='assets/background_img_2.jpg')}} */
+    /* background-image: url("{{ url_for('static', filename='assets/background_img_2.jpg') }}"); */
+
+    background-image: url("/static/assets/background_img_2.jpg");
+
+    background-attachment: fixed;
+    object-fit: scale-down;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(100%);
+    background-color: rgba(72, 94, 141, 0.932);
+    /* Tint color */
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: right center;
+    z-index: -1;
+    padding-top: 3%;
+    border-bottom: 1px solid white;
+}
+
+.container {
+    max-width: 1300px;
+    margin-inline: auto;
+    padding-inline: 10px;
+
+}
+
+
+/* Utilities class */
+.pad-bottom-3per {
+    padding-bottom: 3%;
+}
+
+.bottom-border-2px-white {
+    border-bottom: 2px solid var(--white-color);
+}
+
+.flex-col {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+}
+
+.color-shape {
+    background-color: var(--color);
+    padding: 5px;
+    cursor: pointer;
+    color: aliceblue;
+    width: max(15%, 100px);
+    border-radius: 10px;
+}
+
+
+
+/* ---------- NAVBAR ------------ */
+
+.navbar {
+    /* margin-top: 5%; */
+    display: flex;
+    gap: 10%;
+    justify-content: center;
+    display: flex;
+    gap: 10%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.list {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    font-size: 2rem;
+    color: var(--text-color);
+    /* flex-direction: column; */
+}
+
+.logo {
+    width: 60%;
+    filter: invert(1);
+}
+
+.list-item a {
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+/* ---------- HERO ------------ */
+
+.hero-heading {
+    margin: 10% 0;
+    color: rgb(229, 185, 26);
+    font-size: 8rem;
+    text-align: center;
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'Playball', cursive;
+    /* animation-name: fadeInLeft;
+    animation-duration: 1.2s; */
+
+}
+
+.bottom {
+    position: relative;
+    left: 30%;
+    visibility: hidden;
+}
+
+.button-large {
+    padding: 10px;
+    /* width: 20%;
+    border-radius: 10px; */
+}
+
+/* Menu section */
+
+.container-menu-card {
+    background-color: rgb(73, 71, 64);
+}
+
+.menu-h2 {
+    text-align: center;
+    font-size: 5rem;
+    padding: 3rem 0;
+    color: #fefefe;
+}
+
+.section-h2 {
+    text-align: center;
+    font-size: 5rem;
+    padding: 3rem 0;
+    color: #fefefe;
+}
+
+section.menu-card {
+    padding-bottom: 2%;
+}
+
+/* Dish menu card */
+.first-menu {
+    gap: 20px;
+    flex-wrap: wrap;
+
+}
+
+.box-shape-w400-h300 {
+    width: 400px;
+    height: 300px;
+}
+
+.menu-card-total {
+    width: 25%;
+    position: relative;
+    right: 15px;
+}
+
+.submit-div {
+    padding: 20px 0;
+
+}
+
+.dish-menu {
+    background-color: #ff505f;
+    border: 2px solid #fefefe;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    border-radius: 20px;
+    align-items: flex-end;
+}
+
+/* Util for menu card  */
+.menu-card-util {
+    object-fit: scale-down;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(100%);
+    background-color: rgba(72, 94, 141, 0.932);
+    /* background-blend-mode: multiply; */
+    background-size: cover;
+    background-position: left center;
+}
+
+/* Dish 1 */
+.dish-menu-h2 {
+    font-size: 3rem;
+}
+
+.order-dish {
+    display: inline-block;
+    padding: 9px;
+    border-radius: 10px;
+    width: 102px;
+    font-size: 2ren;
+    font-weight: 1000;
+    border: 0px;
+    cursor: pointer;
+}
+
+
+.dish-1 {
+
+    background-image: url("/static/assets/burger.jpeg");
+
+    color: var(--background-second-color);
+    font-size: 3rem;
+}
+
+.dish-2 {
+    background-image: url("/static/assets/pan\ cake.jpeg");
+    color: var(--white-color);
+}
+
+.dish-3 {
+    background-image: url("/static/assets/pasta.jpg");
+    color: var(--background-second-color);
+    background-position: top center;
+}
+
+.dish-4 {
+    background-image: url("/static/assets/pav\ bhaji.jpeg");
+    color: var(--white-color);
+    background-position: top center;
+}
+
+.dish-5 {
+    background-image: url("/static/assets/birayani.jpeg");
+    color: var(--white-color);
+    background-position: top center;
+}
+
+/* Contact section */
+
+.contant-us {
+    background-color: var(--background-second-color);
+}
+
+.contact-details {
+    gap: 20px;
+    justify-content: space-between;
+    color: var(--white-color);
+}
+
+.contact-h4 {
+    font-size: 3rem;
+}
+
+.contact-about-describe {
+    font-size: 1.5rem;
+}
+
+.text-align {
+    text-align: center;
+    gap: 20px;
+}
+
+.social-media-icon {
+    gap: 20px;
+    justify-content: space-around;
+}
+
+.logo-i-icon {
+    padding: 8px;
+    height: 40px;
+    width: 40px;
+    background-color: var(--white-color);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+.logo-i-icon i {
+    font-size: x-large;
+    filter: invert(100%);
+}
+
+/* ------------------------------ */
+
+@media screen and (max-width:800px) {
+    html {
+        font-size: 7px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    html {
+        font-size: 5px;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+}
+
+
+/* Hover properties */
+
+/* Nav bar hover links */
+.list-item a:hover {
+    text-decoration: underline;
+}
+
+.logo-i-icon:hover {
+    filter: invert(100%);
+}
+
+
+
+.order-dish:hover {
+    transition: 0.5s ease-in-out;
+    background-color: var(--color);
+}

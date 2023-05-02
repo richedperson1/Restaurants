@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Red Rose Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Red+Rose:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <!-- Dela Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="animation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/api_templates.css')}}">
+
+    <title>Document</title>
+
+</head>
+
+<body>
+    <main>
+
+
+        <div class="container">
+            <section aria-label="navbar" id="Home">
+                <nav class="navbar">
+                    <div>
+                        <!-- <img src="/static/assets/Rutvik2.svg" alt="logo" class="logo" /> -->
+                        <!-- <img src="{{url_for('static', filename='assets/Rutvik2.svg')}}" alt="logo" class="logo" /> -->
+                        <!-- <img src="{{url_for('static', filename='assets/Rutvik2.svg')}}" alt="logo" class="logo" /> -->
+                    </div>
+                    <div class="nav-bar-element">
+                        <ul class="list">
+                            <li class="list-item">
+                                <a href="#Home">Home</a>
+                            </li>
+                            <li class="list-item">
+                                <a href="#Menu">Menu</a>
+                            </li>
+                            <li class="list-item">
+                                <a href="#contact-us">Contact-us</a>
+                            </li>
+                            <!-- <li class="list-item">Contact</li> -->
+                        </ul>
+                    </div>
+                    <!-- <div>
+                    <button class="button-small color-shape">Order</button>
+                </div> -->
+                </nav>
+            </section>
+            <!-- Hero Section -->
+            <section aria-label="hero">
+                <div class="hero flex-col">
+                    <h1 class="hero-heading">
+                        "A Restaurant That Only Serves Delicious Food "
+                    </h1>
+                    <button class="button-large color-shape" id="read-menu-btn">Order Food</button>
+                    <div class="bottom">
+                        <div>
+                            <img src="/static/assets/scrool.png" alt="bottom-logo" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <div class="container-menu-card bottom-border-2px-white">
+
+        <section class="menu-card container" id="Menu">
+            <form action="/totalValue" method="post">
+                <h2 class="section-h2">Menu</h2>
+                <div class="first-menu flex">
+                    <div class="dish-menu box-shape-w400-h300  flex dish-1 menu-card-util ">
+                        <h2>{{dishes[0][1]}} ₹ {{dishes[0][-1]}}</h2>
+                        <!-- <p class="price">₹ 23</p> -->
+                        <input type="number" name="items1" id="" class="menu-card-total">
+                    </div>
+                    <div class="dish-menu box-shape-w400-h300  flex dish-2 menu-card-util dish-menu-h2 ">
+                        <h2>{{dishes[1][1]}} ₹ {{dishes[1][-1]}}</h2>
+                        <input type="number" name="items2" id="" class="menu-card-total">
+                    </div>
+                    <div class="dish-menu box-shape-w400-h300  flex dish-3 menu-card-util dish-menu-h2">
+                        <h2>{{dishes[2][1]}} ₹ {{dishes[2][-1]}}</h2>
+                        <input type="number" name="items3" id="" class="menu-card-total">
+                    </div>
+                    <div class="dish-menu box-shape-w400-h300  flex dish-4 menu-card-util dish-menu-h2">
+                        <h2>{{dishes[3][1]}} ₹ {{dishes[3][-1]}}</h2>
+                        <input type="number" name="items4" id="" class="menu-card-total">
+                    </div>
+
+                    <div class="dish-menu box-shape-w400-h300  flex dish-5 menu-card-util dish-menu-h2">
+                        <h2>{{dishes[4][1]}} ₹ {{dishes[4][-1]}}</h2>
+                        <input type="number" name="items5" id="" class="menu-card-total">
+                    </div>
+                </div>
+                <div class="submit-div" style="text-align: center;">
+
+                    <input type="submit" value="Submit" class="order-dish">
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <div class="contant-us " id="contact-us">
+        <section class="contact container pad-bottom-3per">
+            <h2 class="contact-h2 section-h2">Contact</h2>
+            <div class="contact-details flex">
+                <div class="box-shape-w400-h300 text-align flex-col">
+                    <h4 class="contact-h4">About</h4>
+                    <p class="contact-about-describe">
+                        A restaurant that uses high-quality ingredients can make a huge difference in the taste and
+                        quality of the food. Customers appreciate knowing that the food they are eating is made with
+                        fresh, high-quality ingredients.
+                    </p>
+                </div>
+                <div class="box-shape-w400-h300 text-align flex-col">
+                    <h4 class="contact-social-medial contact-h4">Social Media</h4>
+                    <div class="social-media-icon flex">
+                        <p class="logo-i-icon">
+                            <i class="fa-brands fa-square-facebook"></i>
+                        </p>
+                        <p class="logo-i-icon">
+                            <i class="fa-brands fa-instagram"></i>
+                        </p>
+                        <p class="logo-i-icon">
+                            <i class="fa-brands fa-twitter"></i>
+                        </p>
+                    </div>
+                </div>
+                <div class="box-shape-w400-h300 text-align flex-col">
+                    <h4 class="contact-address contact-h4">
+                        Contact Us
+                    </h4>
+                    <div class="address">
+                        <!-- 
+                        <p class="address-text">500 Terry Francois St.</p>
+                        <p class="address-text">San Francisco,</p>
+                        <p class="address-text">CA 94158</p>
+                        <p class="address-text">info@example.com</p>
+                        <p class="address-text">contact@example.com</p> -->
+                        <p class="address-text">123 Main Street</p>
+                        <p class="address-text">Nashik</p>
+                        <p class="address-text">Maharashtra, India</p>
+                        <p class="address-text">411001</p>
+                        <p class="address-text">Email: info@example.com</p>
+                        <p class="address-text">Phone: +91 123-456-7890</p>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+
+        const button = document.querySelector('#read-menu-btn');
+        button.addEventListener('click', () => {
+            const element = document.querySelector('#Menu');
+            element.scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+
+</html>
