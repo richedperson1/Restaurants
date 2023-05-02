@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+    <title>Login page</title>
+</head>
+
+<body>
+    <div class="outerLoginPage">
+        <div class="innerLoginPage">
+            <header class="loginPageHeadline">
+                <h1>Login Page</h1>
+                <p>Required only 30sec</p>
+            </header>
+            <main class="signupbody">
+                <form action="/autho" method="post">
+
+                    <p class="inputField">
+                        <label for="EmailName">User Id : </label>
+                        <input type="email" name="EmailName" id="EmailNameID" placeholder="Ex. xyz@gmail.com">
+                    </p>
+
+                    <p class="inputField">
+                        <label for="PasswordID">Password : </label>
+                        <input type="password" name="PasswordName" id="PasswordID" placeholder="******">
+                    </p>
+                    <p>
+                        <input type="submit" id="submitButton" value="Login">
+
+                    </p>
+                </form>
+            </main>
+            <!-- <footer class="signInPage">
+                <p>
+                    Already signup ?<a href="#">Click here</a>
+                </p>
+            </footer> -->
+        </div>
+        <div class="circle" id="circleFirst"></div>
+        <div class="circle" id="circleSecond"></div>
+        <div class="circle" id="circleThird"></div>
+        <div class="circle" id="circleFourth"></div>
+    </div>
+
+</body>
+
+</html>
