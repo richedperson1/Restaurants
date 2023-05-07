@@ -30,19 +30,23 @@ def autho():
         password = request.form["PasswordName"]
 
         cur = mycon.cursor()
-        query = "select * from customers"
+        query = f"select * from customers where (userName='{email}' or email ='{email}') and user_password = '{password}'"
         cur.execute(query)
         finalUsers = cur.fetchall()
 
-        print("---"*5+">")
-        for details in finalUsers:
-            registerEmail = details[1]
-            registerPass = details[-1]
-            print("---"*5+">", email, registerEmail)
-            print("---"*5+">", password, registerPass)
-            if registerEmail == email and registerPass == password:
-                print("--"*10+">", "Completed Process")
-                return redirect(url_for("home_page"))
+        if len(finalUsers)>=1:
+            print("---"*5+">","Verification Sucess")
+            return redirect(url_for("home_page"))
+        
+        print("---"*5+">","Verification failed")
+        # for details in finalUsers:
+        #     registerEmail = details[1]
+        #     registerPass = details[-1]
+        #     print("---"*5+">", email, registerEmail)
+        #     print("---"*5+">", password, registerPass)
+        #     if registerEmail == email and registerPass == password:
+        #         print("--"*10+">", "Completed Process")
+        #         return redirect(url_for("home_page"))
 
         return redirect(url_for("loginPage"))
     return render_template("index.html")
