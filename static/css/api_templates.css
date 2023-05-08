@@ -265,6 +265,7 @@ section.menu-card {
     background-image: url("/static/assets/birayani.jpeg");
     color: var(--white-color);
     background-position: top center;
+    background-position: center right;
 }
 
 /* Contact section */

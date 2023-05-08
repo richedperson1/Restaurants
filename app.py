@@ -5,6 +5,10 @@ from datetime import datetime
 todayDate = str(datetime.now().date())
 
 app = Flask(__name__, template_folder='template', static_folder='static')
+
+# Adding secrete key 
+app.secret_key = "asjdkhfjaksnd1265484asdf"
+
 mycon = con.connect(host='localhost', passwd='ru15070610',
                     user='root', database="resto")
 query = "select * from dishes"
@@ -19,6 +23,8 @@ for item in final:
 
 @app.route("/")
 def loginPage():
+    # if "username" in session:
+    #     return redirect(url)
     return render_template("index.html")
 
 
@@ -28,7 +34,7 @@ def autho():
 
         email = request.form["EmailName"]
         password = request.form["PasswordName"]
-
+        session["username"] = email
         cur = mycon.cursor()
         query = f"select * from customers where (userName='{email}' or email ='{email}') and user_password = '{password}'"
         cur.execute(query)
@@ -39,15 +45,6 @@ def autho():
             return redirect(url_for("home_page"))
         
         print("---"*5+">","Verification failed")
-        # for details in finalUsers:
-        #     registerEmail = details[1]
-        #     registerPass = details[-1]
-        #     print("---"*5+">", email, registerEmail)
-        #     print("---"*5+">", password, registerPass)
-        #     if registerEmail == email and registerPass == password:
-        #         print("--"*10+">", "Completed Process")
-        #         return redirect(url_for("home_page"))
-
         return redirect(url_for("loginPage"))
     return render_template("index.html")
 
@@ -55,33 +52,17 @@ def autho():
 @app.route("/HomePage", methods=["post", "get"])
 def home_page():
 
-    mycon = con.connect(host='localhost', passwd='ru15070610',
-                        user='root', database="resto")
+    if "username" in session:
+        mycon = con.connect(host='localhost', passwd='ru15070610',
+                            user='root', database="resto")
 
-    # cur = mycon.cursor()
-    # query = "select * from customers"
-    # cur.execute(query)
-    # finalUsers = cur.fetchall()
-
-    # email = request.form["EmailName"]
-    # password = request.form["PasswordName"]
-    # print("--"*10, email, password)
-    # print("--"*10, finalUsers)
-    # flag = False
-    # ind = len(finalUsers)-1
-    # for id, detail in enumerate(finalUsers):
-    #     print(detail)
-    #     if detail[1] == email and detail[2] == password:
-    #         continue
-    #     else:
-    #         if id >= ind:
-    #             return render_template("index.html")
-
-    query = "select * from dishes"
-    cur = mycon.cursor()
-    cur.execute(query)
-    final = cur.fetchall()
-    return render_template("api_templates.html", dishes=final)
+        query = "select * from dishes"
+        cur = mycon.cursor()
+        cur.execute(query)
+        final = cur.fetchall()
+        return render_template("api_templates.html", dishes=final)
+    loginPageResponse =  loginPage()
+    return loginPageResponse
 
 
 @app.route("/totalValue", methods=["post"])
