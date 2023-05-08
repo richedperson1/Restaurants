@@ -21,13 +21,28 @@ for item in final:
     price_dish.append([item[1], int(item[-1])])
 
 
+"""
+This function renders the login page if the user is not already logged in.
+:return: The function `loginPage()` returns the rendered HTML template "index.html".
+"""
+
 @app.route("/")
 def loginPage():
-    # if "username" in session:
-    #     return redirect(url)
+    if "username" in session:
+        return redirect(url_for("home_page"))
     return render_template("index.html")
 
 
+"""
+This function authenticates user login credentials by checking if the email and password match with
+the ones stored in the database, and redirects the user to the home page if successful or the login
+page if unsuccessful.
+
+:return: If the verification is successful, the function will redirect to the home page. If the
+verification fails, the function will redirect to the login page. If the request method is not POST,
+the function will render the index.html template.
+
+"""
 @app.route("/autho", methods=["post"])
 def autho():
     if request.method == "POST":
@@ -49,6 +64,17 @@ def autho():
     return render_template("index.html")
 
 
+"""
+This function renders the home page of a restaurant website and displays a list of dishes from a
+database if the user is logged in, otherwise it redirects to the login page.
+
+:return: If the "username" key is present in the session, the function returns a rendered template
+"api_templates.html" with the data fetched from the "dishes" table in the "resto" database. If the
+"username" key is not present in the session, the function returns the response from the "loginPage"
+function.
+
+"""
+
 @app.route("/HomePage", methods=["post", "get"])
 def home_page():
 
@@ -63,6 +89,21 @@ def home_page():
         return render_template("api_templates.html", dishes=final)
     loginPageResponse =  loginPage()
     return loginPageResponse
+
+
+"""
+This function logs out a user by removing their username from the session and redirects them to the
+home page.
+
+:return: a redirect to the home page using the `redirect` function from Flask and the `url_for`
+function to generate the URL for the home page.
+
+"""
+@app.route("/logOut",methods = ["post","get"])
+def logOutUser():
+    session.pop("username")
+    print(session)
+    return redirect(url_for("home_page"))
 
 
 @app.route("/totalValue", methods=["post"])
