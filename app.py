@@ -139,5 +139,14 @@ def totalValue():
     return "Hello"
 
 
+@app.route("/fileCheck", methods=["post"])
+def testingPost():
+    if request.method == "POST":
+
+        dataFileName = request.files.get("fileName")
+        
+        return "File name is "+ str(dataFileName)
+    return "Not found"
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
